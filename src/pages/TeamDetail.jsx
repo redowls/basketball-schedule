@@ -36,12 +36,10 @@ class TeamDetail extends React.Component{
             <p>Fetching From API</p> :
             <div>
                 <h5 className="text-center">{this.state.teamDetail.strTeam}</h5>
-                <div className = "row">
-                    <div className="col-5"></div>
+                <div className = "row justify-content-center">
                     <div className="col-2">
                         <img src={this.state.teamDetail.strTeamBadge} className="img-thumbnail" alt={this.state.teamDetail.strTeam}/>
                     </div>
-                    <div className='col-5'></div>
                 </div>
                 <p>{this.state.teamDetail.strDescriptionEN}</p>
                 <div className='row'>
