@@ -6,7 +6,7 @@ class AboutUs extends React.Component{
 
     handleSubmit = (e) =>{
         e.preventDefault();
-        alert('Thankyou for your feedback :) ' + $('#name').val())
+        alert('Thankyou '+$('#name').val()+' for your feedback :)')
         $('form').trigger("reset");
         $('form').trigger("change")
     }

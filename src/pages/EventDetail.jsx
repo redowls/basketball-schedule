@@ -1,6 +1,7 @@
 import React from 'react'
 import ListEvents from '../compornets/ListEvents'
 import "bootstrap/dist/css/bootstrap.min.css"
+import $ from 'jquery'
 
 class EventDetail extends React.Component{
     state = {
@@ -18,6 +19,8 @@ class EventDetail extends React.Component{
                     eventDetail : data.events[0],
                     loading : false
                 })
+                var string = this.state.eventDetail.dateEventLocal +' ' +this.state.eventDetail.strTimeLocal
+                $('h3').text(new Date(string.slice(0,-2)+'UTC-5').toString().slice(0,-30))
                 this.render()
             } else {
                 this.setState({
@@ -25,6 +28,11 @@ class EventDetail extends React.Component{
                 })
             }
         })
+    }
+
+    seeYoutube(){
+        var url = "https://google.com/search?btnI=1&q="+this.state.eventDetail.strEvent+"+"+this.state.eventDetail.dateEvent.slice(0,4)+"+youtube+highlights"
+        window.location = url
     }
 
     render(){
@@ -35,7 +43,7 @@ class EventDetail extends React.Component{
                     this.state.loading ?
                     <p>Fetching From API</p> :
                     <div className='container'>
-                        <h3 className='text-center'>{eventDetail.dateEventLocal} {eventDetail.strTimeLocal}</h3>
+                            <h3 className='text-center'></h3>
                         <div>
                             <ListEvents events={eventDetail}/>
                         </div>
@@ -50,18 +58,11 @@ class EventDetail extends React.Component{
                                 <h5>{eventDetail.intAwayScore}</h5>
                             </div>
                         </div>
-                        <div>
-                            <a href='`{state}`'></a>
-                        </div>
-                    </div>
-                    
+                            <button onClick={() => this.seeYoutube()} className = "btn btn-primary btn-lg btn-block mt-3">See Youtube</button>
+                    </div>   
                 }
-                
-                
             </div>
-            
-            
-        )
+            )
         }
     
 }
