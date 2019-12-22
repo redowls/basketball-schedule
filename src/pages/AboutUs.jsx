@@ -9,8 +9,8 @@ class AboutUs extends React.Component{
         alert('Thankyou '+$('#name').val()+' for your feedback :)')
         $('form').trigger("reset");
         $('form').trigger("change")
+        window.location = '/'
     }
-    
 
     render(){
         return(
